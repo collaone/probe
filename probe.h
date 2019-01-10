@@ -23,11 +23,17 @@ signals:
 public slots:
     void doWork();
     QString getCpuTemperature();
+    QString GetCPULoadPercent();
     QString getDiskFreeSpace();
 
 private:
     QTimer timer;
-    QString reading;
+
+    uint64_t _cpu_user;
+    uint64_t _cpu_nice;
+    uint64_t _cpu_system;
+    uint64_t _cpu_idle;
+    uint64_t _cpu_ioWait;
 };
 
 #endif // PROBE_H
